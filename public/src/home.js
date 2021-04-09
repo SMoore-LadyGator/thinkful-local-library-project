@@ -19,6 +19,8 @@ function getBooksBorrowedCount(books) {
 
 function getTopFive(array) {
   return array.sort((indexA, indexB) => indexB.count - indexA.count).slice(0, 5)
+  //sort is ordering the numbers in the array from biggest to smallest
+  //slice is starting at the first number (index 0) and taking returning the first 5 indexes
 }
 
 
@@ -36,7 +38,6 @@ function getMostCommonGenres(books) {
   for (const key in genreCount) {
     topGenres.push({ name: key, count: genreCount[key] })
   }
-  //return topGenres.sort((genreA, genreB) => genreB.count - genreA.count).slice(0, 5)
   return getTopFive(topGenres);
 }
 
@@ -48,7 +49,6 @@ function getMostPopularBooks(books) {
     let name = book.title;
     borrowCount.push({ name, count });
   });
-  //return borrowCount.sort((bookA, bookB) => bookB.count - bookA.count).slice(0, 5);
   return getTopFive(borrowCount);
 }
 
@@ -56,7 +56,7 @@ function getMostPopularBooks(books) {
 function getMostPopularAuthors(books, authors) {
   const popularAuthors = authors.map(author => {
     const { first, last } = author.name;
-    let name = `${first} ${last}`;
+    const name = `${first} ${last}`;
     const authorId = author.id;
 
     let count = books.reduce((acc, book) => {
@@ -69,7 +69,6 @@ function getMostPopularAuthors(books, authors) {
     return { name, count };
   });
 
-  //return popularAuthors.sort((authorA, authorB) => authorB.count - authorA.count).slice(0, 5);
   return getTopFive(popularAuthors);
 }
 

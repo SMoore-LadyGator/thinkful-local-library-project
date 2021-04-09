@@ -10,8 +10,7 @@ function sortAccountsByLastName(accounts) {
 }
 
 
-//It returns a NUMBER that represents the number of times the account's ID
-// appears in any book's `borrow` array.
+//It returns a NUMBER that represents the number of times the account's ID appears in any book's `borrow` array.
 function getTotalNumberOfBorrows(account, books) {
   //account is an object, books is an array of objects
   const patronId = account.id; //variable for simplicity
@@ -33,8 +32,7 @@ function getTotalNumberOfBorrows(account, books) {
 
 
 /*It returns an array of books and authors that represents all books CURRENTLY
-CHECKED OUT by the given account. AUTHOR OBJECT IS EMBEDDED INSIDE BOOK OBJECT
-*/
+CHECKED OUT by the given account. AUTHOR OBJECT IS EMBEDDED INSIDE BOOK OBJECT */
 function getBooksPossessedByAccount(account, books, authors) {
   //account is an object, books is an array of objects, authors is an array of objects
   const patronId = account.id; //variable for simplicity
@@ -52,7 +50,6 @@ function getBooksPossessedByAccount(account, books, authors) {
     patronCheckedOutBooks.push(book);
   });
 
-  //console.log(patronCheckedOutBooks);
   return patronCheckedOutBooks;
 }
 
